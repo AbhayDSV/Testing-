@@ -20,8 +20,9 @@ jobs:
           username: ubuntu
           key: ${{secrets.SSH_KEY }}
           script: |
-            cd  /home/ubuntu/Testing
-            git pull
-            docker-compose up -d --build
+            cd /home/ubuntu/Testing
+             git pull
+             docker-compose down --rmi all --volumes --remove-orphans
+             docker-compose up -d --build
 
      
